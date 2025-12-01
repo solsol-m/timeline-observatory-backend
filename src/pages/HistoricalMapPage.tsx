@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Navbar, Footer } from '../components/Layout/Navigation';
 import { Button } from '../components/UI/Button';
 import { PageContainer } from '../components/UI/Container';
-import { fetchEvents } from '../data/mockData';
+import { fetchEvents } from '../services/api';
 import { HistoricalEvent } from '../types';
 
 // Historical World Map Page - matching screenshot 5

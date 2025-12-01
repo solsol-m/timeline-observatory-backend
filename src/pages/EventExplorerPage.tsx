@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Navbar, Footer } from '../components/Layout/Navigation';
 import { Button } from '../components/UI/Button';
 import { PageContainer, Section } from '../components/UI/Container';
-import { fetchEvents } from '../data/mockData';
+import { fetchEvents } from '../services/api';
 import { HistoricalEvent } from '../types';
 
 // Event Explorer Page - matching screenshot 4
