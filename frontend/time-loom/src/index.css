@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles for ancient/historical theme */
+
+@layer base {
+  body {
+    @apply bg-black text-white font-serif;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v6h6V4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Golden button style matching screenshots */
+  .btn-gold {
+    @apply px-8 py-3 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 
+           text-black font-semibold rounded-full 
+           border-2 border-yellow-600
+           hover:from-yellow-500 hover:via-yellow-400 hover:to-yellow-500
+           transition-all duration-300 shadow-lg
+           hover:shadow-yellow-500/50;
+  }
+
+  .btn-gold-outline {
+    @apply px-8 py-3 bg-transparent
+           text-yellow-500 font-semibold rounded-full 
+           border-2 border-yellow-600
+           hover:bg-yellow-600/10
+           transition-all duration-300;
+  }
+
+  /* Decorative border pattern */
+  .ancient-border {
+    @apply relative;
+  }
+
+  .ancient-border::before,
+  .ancient-border::after {
+    content: '';
+    @apply absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-600 to-transparent;
+  }
+
+  .ancient-border::before {
+    @apply top-0;
+  }
+
+  .ancient-border::after {
+    @apply bottom-0;
+  }
+
+  /* Card with golden borders */
+  .event-card {
+    @apply bg-black/60 backdrop-blur-sm border-2 border-yellow-700/50 
+           rounded-lg p-6 hover:border-yellow-500 transition-all duration-300
+           hover:shadow-lg hover:shadow-yellow-500/20;
+  }
+
+  /* Angled corner decoration */
+  .corner-decoration {
+    @apply relative overflow-hidden;
+  }
+
+  .corner-decoration::before {
+    content: '';
+    @apply absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-yellow-600/50;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  .corner-decoration::after {
+    content: '';
+    @apply absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-yellow-600/50;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-yellow-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-yellow-600;
+}
+
+/* Leaflet map custom styles */
+.leaflet-container {
+  @apply bg-black;
+  font-family: 'Cinzel', serif;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply bg-black/90 text-yellow-500 border-2 border-yellow-700 rounded-lg;
+}
+
+.leaflet-popup-tip {
+  @apply bg-black/90;
+}
