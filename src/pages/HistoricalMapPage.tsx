@@ -1,31 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Navbar, Footer } from '../components/Layout/Navigation';
 import { Button } from '../components/UI/Button';
-import { PageContainer, Section } from '../components/UI/Container';
+import { PageContainer } from '../components/UI/Container';
 import { fetchEvents } from '../data/mockData';
 import { HistoricalEvent } from '../types';
-import 'leaflet/dist/leaflet.css';
-
-// Fix for default marker icons in react-leaflet
-import L from 'leaflet';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-
-let DefaultIcon = L.icon({
-  iconUrl: icon,
-  shadowUrl: iconShadow,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
 
 // Historical World Map Page - matching screenshot 5
 export const HistoricalMapPage: React.FC = () => {
   const navigate = useNavigate();
-  const [events, setEvents] = useState<HistoricalEvent[]>([]);
+  const [_events, setEvents] = useState<HistoricalEvent[]>([]);
   const [selectedEvents, setSelectedEvents] = useState<HistoricalEvent[]>([]);
   const [filters, setFilters] = useState({
     eventCategory: 'Event Title',

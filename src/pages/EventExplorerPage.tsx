@@ -10,7 +10,7 @@ import { HistoricalEvent } from '../types';
 export const EventExplorerPage: React.FC = () => {
   const navigate = useNavigate();
   const [events, setEvents] = useState<HistoricalEvent[]>([]);
-  const [filters, setFilters] = useState({
+  const [filters, _setFilters] = useState({
     era: 'Ancient-Medieval-Renaissance-Industrial-Modern',
     continent: 'Africa-Asia-Europe-Americas-Oceania',
     category: 'Wars-Science-Discoveries-Culture-Catastrophes'
